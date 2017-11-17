@@ -12,7 +12,7 @@ namespace App\Http\Controllers\v1;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
-class UserController
+class UserController extends Controller
 {
     private $userService;
 
@@ -25,7 +25,7 @@ class UserController
     {
         $this->validate($request,[
             'username' => 'required|regex:/^[(a-zA-Z\s)(0-9\s)]+$/u|min:3',
-            'email' => 'required|email|unique:rb_users',
+            'email' => 'required|email',
             'password' => 'required|min:8',
             'displayname' => 'required|regex:/^[(a-zA-Z\s)(0-9\s)]+$/u|min:3',
         ], [
@@ -38,6 +38,8 @@ class UserController
             $request->get('password'),
             $request->get('displayname')
         );
+
+
 
         if($user)
         {

@@ -11,10 +11,6 @@ namespace App\Repositories;
 class UserRepository extends AbstractRepository
 {
 
-    public function __construct()
-    {
-    }
-
     public function createUser($user)
     {
         return $this->getModel()->store($user);
@@ -31,6 +27,7 @@ class UserRepository extends AbstractRepository
                 'displayname' => $displayName,
             ]);
         $user->save();
+        return $user;
     }
 
 

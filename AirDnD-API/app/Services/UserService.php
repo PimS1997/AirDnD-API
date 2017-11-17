@@ -24,9 +24,11 @@ class UserService extends AbstractService
 
     public function signUpUser($userName, $email, $password, $displayName)
     {
+
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $user = $this->userRepository->sugnUpNewUser($userName, strtolower($email), $password, $displayName);
+        $user = $this->userRepository->signUpNewUser($userName, strtolower($email), $password, $displayName);
+
         $user = $this->userRepository->get($user->pk);
 
         //send user signup mail soon
