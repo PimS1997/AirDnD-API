@@ -13,4 +13,9 @@
 
 $router->group(['prefix' => 'v1', 'namespace' => 'v1'], function ($router) {
     $router->get('/', 'Controller@home');
+
+
+    $router->post('user', 'UserController@signUpUser');
+
+
 });

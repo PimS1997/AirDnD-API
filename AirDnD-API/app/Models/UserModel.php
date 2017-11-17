@@ -8,9 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 
-class UserModel extends Model implements AuthenticatableContract, AuthorizableContract
+class UserModel extends BaseModel
 {
-    use Authenticatable, Authorizable;
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
 
     /**
      * The attributes that are mass assignable.

@@ -8,6 +8,7 @@
 
 namespace App\Services;
 
+use App\Models\UserModel;
 use App\Repositories\UserRepository;
 
 class UserService extends AbstractService
@@ -19,4 +20,18 @@ class UserService extends AbstractService
         $this->userRepository = $userRepository;
 
     }
+
+
+    public function signUpUser($userName, $email, $password, $displayName)
+    {
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        $user = $this->userRepository->sugnUpNewUser($userName, strtolower($email), $password, $displayName);
+        $user = $this->userRepository->get($user->pk);
+
+        //send user signup mail soon
+
+        return $user;
+    }
+
 }

@@ -11,6 +11,29 @@ namespace App\Repositories;
 class UserRepository extends AbstractRepository
 {
 
+    public function __construct()
+    {
+    }
+
+    public function createUser($user)
+    {
+        return $this->getModel()->store($user);
+    }
+
+    public function signUpNewUser($username, $email, $password, $displayName)
+    {
+        $user = $this->getModel();
+        $user->fill(
+            [
+                'username' => $username,
+                'email' => $email,
+                'password' => $password,
+                'displayname' => $displayName,
+            ]);
+        $user->save();
+    }
+
+
     /**
      * Specify Model class name
      *
