@@ -11,6 +11,6 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => 'v1', 'namespace' => 'v1'], function ($router) {
+    $router->get('/', 'Controller@home');
 });
