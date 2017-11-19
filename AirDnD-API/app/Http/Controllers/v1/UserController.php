@@ -53,11 +53,6 @@ class UserController extends Controller
         }
 
         return response()->json($response, 201);
-
-/*        $data = $request->all();
-        //$header = $request->header();
-
-        $this->userService->addUder($data);*/
     }
 
 }

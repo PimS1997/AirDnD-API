@@ -11,6 +11,19 @@ namespace App\Repositories;
 class GameRepository extends AbstractRepository
 {
 
+
+    public function createGame($title, $description, $ruleset)
+    {
+        $game = $this->getModel();
+        $game->fill([
+            'title' => $title,
+            'description' => $description,
+            'ruleset' => $ruleset
+            ]);
+        $game->save();
+        return $game;
+    }
+
     /**
      * Specify Model class name
      *

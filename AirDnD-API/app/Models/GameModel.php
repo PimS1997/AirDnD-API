@@ -17,7 +17,7 @@ class GameModel extends BaseModel
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'games';
 
 
     /**
@@ -26,15 +26,7 @@ class GameModel extends BaseModel
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'displayname'
+        'title', 'description', 'ruleset'
     ];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-    ];
 }

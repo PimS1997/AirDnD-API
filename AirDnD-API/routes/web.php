@@ -17,5 +17,7 @@ $router->group(['prefix' => 'v1', 'namespace' => 'v1'], function ($router) {
 
     $router->post('user', 'UserController@signUpUser');
 
+    $router->post('game', 'GameController@createGame');
+
 
 });
